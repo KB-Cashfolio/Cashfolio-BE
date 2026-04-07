@@ -1,0 +1,92 @@
+{
+  "users": [
+    {
+      "id": "0001",
+      "username": "한재윤",
+      "email": "jaeyoon@example.com",
+      "password": "pass1234",
+      "beg_level": 1,
+      "current_exp": 75,
+      "monthly_limit": 500000,
+      "total_income": 1200000,
+      "total_expense": 458000
+    }
+  ],
+  "beggars": [
+    {
+      "id": "lvl1",
+      "level": 1,
+      "name": "길바닥 거지",
+      "img_path": "/images/beggar_lv1.png",
+      "ment": "배가 고파요... 저축해서 탈출시켜주세요!"
+    },
+    {
+      "id": "lvl2",
+      "level": 2,
+      "name": "박스 집 거지",
+      "img_path": "/images/beggar_lv2.png",
+      "ment": "와! 이제 비를 피할 수 있는 지붕이 생겼어요!"
+    }
+  ],
+  "accounts": [
+    {
+      "id": "0001",
+      "user_id": "user01",
+      "bank": "KB국민은행",
+      "acc_num": "123-4567-8901",
+      "balance": 1250000
+    },
+    {
+      "id": "0002",
+      "user_id": "user01",
+      "bank": "카카오뱅크",
+      "acc_num": "3333-01-2222",
+      "balance": 52300
+    }
+  ],
+  "transactions": [
+    {
+      "id": "0001",
+      "user_id": "user01",
+      "account_id": "0001",
+      "date": "2026-04-01",
+      "amount": 8000,
+      "category": "식비",
+      "inandout_id": "out",
+      "memo": "편의점 도시락"
+    },
+    {
+      "id": "0002",
+      "user_id": "user01",
+      "account_id": "0002",
+      "date": "2026-04-02",
+      "amount": 2500000,
+      "category": "월급",
+      "inandout_id": "in",
+      "memo": "3월 급여 입금"
+    },
+    {
+      "id": "0003",
+      "user_id": "user01",
+      "account_id": "002",
+      "date": "2026-04-05",
+      "amount": 130000,
+      "category": "교통비",
+      "inandout_id": "out",
+      "memo": "버스 요금"
+    }
+  ],
+  "inandout": [
+    {
+      "id": "in",
+      "name": "수입",
+      "type": "plus"
+    },
+    {
+      "id": "out",
+      "name": "지출",
+      "type": "minus"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
