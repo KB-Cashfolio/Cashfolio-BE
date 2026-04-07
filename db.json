@@ -14,14 +14,28 @@
   ],
   "beggars": [
     {
-      "id": "lvl1",
+      "id": "1",
       "level": 1,
       "name": "길바닥 거지",
       "img_path": "/images/beggar_lv1.png",
       "ment": "배가 고파요... 저축해서 탈출시켜주세요!"
     },
     {
-      "id": "lvl2",
+      "id": "2",
+      "level": 2,
+      "name": "박스 집 거지",
+      "img_path": "/images/beggar_lv2.png",
+      "ment": "와! 이제 비를 피할 수 있는 지붕이 생겼어요!"
+    },
+    {
+      "id": "2",
+      "level": 2,
+      "name": "박스 집 거지",
+      "img_path": "/images/beggar_lv2.png",
+      "ment": "와! 이제 비를 피할 수 있는 지붕이 생겼어요!"
+    },
+    {
+      "id": "2",
       "level": 2,
       "name": "박스 집 거지",
       "img_path": "/images/beggar_lv2.png",
@@ -78,12 +92,12 @@
   ],
   "inandout": [
     {
-      "id": "in",
+      "id": "1",
       "name": "수입",
       "type": "plus"
     },
     {
-      "id": "out",
+      "id": "2",
       "name": "지출",
       "type": "minus"
     }
