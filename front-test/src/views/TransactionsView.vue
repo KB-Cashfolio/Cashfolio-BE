@@ -1,0 +1,779 @@
+<script setup>
+import { ref, reactive, onMounted, computed } from 'vue';
+import api from '../services/api';
+import DeleteConfirmModal from '../components/DeleteConfirmModal.vue';
+
+// --- State (반응형 변수) ---
+const transactions = ref([]);
+const inandout = ref([]);
+const editMode = ref(false);
+const editId = ref(null);
+// 모달 상태 관리
+const isModalShow = ref(false);
+const targetId = ref(null);
+// 현재 정렬 기준 ('date' 또는 'amount')
+const currentSort = ref('date');
+
+// 삭제 버튼 클릭 시 모달 띄우기
+const openDeleteModal = (id) => {
+  targetId.value = id;
+  isModalShow.value = true;
+};
+
+// 실제 삭제 실행
+const confirmDelete = async () => {
+  if (targetId.value) {
+    await api.delete(`/transactions/${targetId.value}`);
+    await fetchTransactions();
+  }
+  isModalShow.value = false;
+};
+
+const form = reactive({
+  date: new Date().toISOString().substr(0, 10),
+  amount: '',
+  category: '',
+  inandout_id: 'out',
+  memo: '',
+  user_id: 'user01',
+  account_id: '0001',
+});
+
+// 통합 정렬 computed
+const displayTransactions = computed(() => {
+  const list = [...transactions.value];
+
+  if (currentSort.value === 'date') {
+    // 최신 날짜순 (날짜가 같으면 최신 ID순)
+    return list.sort(
+      (a, b) => new Date(b.date) - new Date(a.date) || b.id - a.id,
+    );
+  } else {
+    // 금액 높은순
+    return list.sort((a, b) => b.amount - a.amount);
+  }
+});
+
+// 정렬 변경 함수
+const setSort = (type) => {
+  currentSort.value = type;
+};
+
+// --- Actions (함수) ---
+
+// 데이터 로드
+const fetchTransactions = async () => {
+  try {
+    const res = await api.get('/transactions');
+    transactions.value = res.data;
+  } catch (err) {
+    console.error('데이터 로드 실패', err);
+  }
+};
+
+const fetchInAndOut = async () => {
+  try {
+    const res = await api.get('/inandout');
+    inandout.value = res.data;
+  } catch (err) {
+    console.error('공통코드 로드 실패', err);
+  }
+};
+
+// 추가
+const addTransaction = async () => {
+  if (!form.amount || !form.category) return alert('내용을 입력해주세요.');
+  await api.post('/transactions', form);
+  resetForm();
+  await fetchTransactions();
+};
+
+// 수정 모드 선택
+const selectTransaction = (tx) => {
+  Object.assign(form, tx); // 객체 복사
+  editMode.value = true;
+  editId.value = tx.id;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// 수정 완료
+const updateTransaction = async () => {
+  await api.put(`/transactions/${editId.value}`, form);
+  resetForm();
+  await fetchTransactions();
+};
+
+// // 삭제
+// const deleteTransaction = async (id) => {
+//   if (confirm('정말 삭제하시겠습니까?')) {
+//     await api.delete(`/transactions/${id}`);
+//     await fetchTransactions();
+//   }
+// };
+
+// 취소 및 폼 초기화
+const cancelEdit = () => {
+  resetForm();
+};
+
+const resetForm = () => {
+  editMode.value = false;
+  editId.value = null;
+  Object.assign(form, {
+    date: new Date().toISOString().substr(0, 10),
+    amount: '',
+    category: '',
+    inandout_id: 'out',
+    memo: '',
+    user_id: 'user01',
+    account_id: '0001',
+  });
+};
+
+// --- Lifecycle ---
+onMounted(() => {
+  fetchTransactions();
+  fetchInAndOut();
+});
+</script>
+
+<template>
+  <div class="page">
+    <div class="container">
+      <header class="header">
+        <div>
+          <p class="eyebrow">TRANSACTION</p>
+          <h1>{{ editMode ? '내역 수정' : '내역 추가' }}</h1>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="mission-list">
+          <div class="status-item">
+            <div class="status-label-row"><span>날짜</span></div>
+            <input type="date" v-model="form.date" class="custom-input" />
+          </div>
+
+          <div class="status-item">
+            <div class="status-label-row"><span>금액</span></div>
+            <input
+              type="number"
+              v-model="form.amount"
+              placeholder="0"
+              class="custom-input"
+            />
+          </div>
+
+          <div class="asset-grid" style="margin-top: 0">
+            <div class="status-item">
+              <div class="status-label-row"><span>카테고리</span></div>
+              <input
+                v-model="form.category"
+                placeholder="식비, 교통 등"
+                class="custom-input"
+              />
+            </div>
+            <div class="status-item">
+              <div class="status-label-row"><span>수입/지출</span></div>
+              <select v-model="form.inandout_id" class="custom-input">
+                <option
+                  v-for="item in inandout"
+                  :key="item.id"
+                  :value="item.id"
+                >
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="status-item">
+            <div class="status-label-row"><span>메모</span></div>
+            <input
+              v-model="form.memo"
+              placeholder="상세 내용 입력"
+              class="custom-input"
+            />
+          </div>
+        </div>
+
+        <div style="margin-top: 20px">
+          <button
+            v-if="!editMode"
+            @click="addTransaction"
+            class="quick-btn"
+            style="width: 100%"
+          >
+            내역 저장하기
+          </button>
+          <div v-else style="display: flex; gap: 8px">
+            <button
+              @click="updateTransaction"
+              class="quick-btn"
+              style="width: 70%"
+            >
+              수정 완료
+            </button>
+            <button
+              @click="cancelEdit"
+              class="quick-btn"
+              style="width: 30%; background: #e2e8f0; color: #475569"
+            >
+              취소
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h3>거래 내역</h3>
+          <div class="sort-controls">
+            <button
+              :class="['sort-btn', { active: currentSort === 'date' }]"
+              @click="setSort('date')"
+            >
+              최신순
+            </button>
+            <button
+              :class="['sort-btn', { active: currentSort === 'amount' }]"
+              @click="setSort('amount')"
+            >
+              금액순
+            </button>
+          </div>
+        </div>
+
+        <div class="transaction-list">
+          <div
+            v-for="tx in displayTransactions"
+            :key="tx.id"
+            class="transaction-item"
+          >
+            <div class="tx-left">
+              <div
+                :class="[
+                  'tx-icon',
+                  tx.inandout_id === 'in' ? 'income' : 'expense',
+                ]"
+              >
+                {{ tx.category?.charAt(0) || 'Etc' }}
+              </div>
+              <div>
+                <p class="tx-title">{{ tx.category }}</p>
+                <p class="tx-meta">{{ tx.date }} | {{ tx.memo }}</p>
+              </div>
+            </div>
+
+            <div style="text-align: right">
+              <p
+                :class="[
+                  'tx-amount',
+                  tx.inandout_id === 'in' ? 'income' : 'expense',
+                ]"
+              >
+                {{ tx.inandout_id === 'in' ? '+' : '-'
+                }}{{ Number(tx.amount).toLocaleString() }}원
+              </p>
+              <div
+                style="
+                  margin-top: 4px;
+                  display: flex;
+                  gap: 4px;
+                  justify-content: flex-end;
+                "
+              >
+                <button
+                  @click="selectTransaction(tx)"
+                  class="badge"
+                  style="border: none; cursor: pointer"
+                >
+                  수정
+                </button>
+                <button
+                  @click="openDeleteModal(tx.id)"
+                  class="badge"
+                  style="
+                    border: none;
+                    cursor: pointer;
+                    background: #ffe4e6;
+                    color: #e11d48;
+                  "
+                >
+                  삭제
+                </button>
+                <DeleteConfirmModal
+                  :show="isModalShow"
+                  @confirm="confirmDelete"
+                  @cancel="isModalShow = false"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+* {
+  box-sizing: border-box;
+}
+
+/* 이전과 동일한 스타일 코드 */
+.custom-input {
+  width: 100%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.custom-input:focus {
+  border-color: #0f172a;
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 20px;
+  color: #0f172a;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+}
+
+.container {
+  max-width: 430px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.header,
+.asset-top,
+.transaction-item,
+.tx-left,
+.meta-row,
+.status-label-row,
+.mission-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.top-align {
+  align-items: flex-start;
+}
+
+.eyebrow,
+.character-eyebrow {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: #64748b;
+}
+
+.character-eyebrow {
+  color: #b45309;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+h2 {
+  margin-top: 8px;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.quick-btn {
+  border: none;
+  background: #0f172a;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.16);
+}
+
+.panel,
+.asset-panel,
+.character-panel {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.panel,
+.character-panel {
+  padding: 20px;
+}
+
+.asset-panel {
+  padding: 22px;
+}
+
+.label,
+.section-head p,
+.character-desc,
+.mission-reward,
+.tx-meta,
+.meta-row span {
+  color: #64748b;
+}
+
+.label {
+  font-size: 14px;
+}
+
+.icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #334155;
+}
+
+.asset-grid,
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.mini-card,
+.category-card {
+  background: #f8fafc;
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.mini-card p,
+.category-name,
+.reward-title,
+.tx-meta,
+.mission-reward,
+.section-head p,
+.character-desc {
+  font-size: 13px;
+}
+
+.mini-card strong,
+.category-amount {
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.badge,
+.mood-badge,
+.mission-badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.progress-track,
+.status-track {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.progress-track {
+  height: 12px;
+  background: #e2e8f0;
+  margin-top: 14px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #0f172a;
+  border-radius: 999px;
+}
+
+.meta-row {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.meta-row strong {
+  font-size: 14px;
+}
+
+.category-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: #334155;
+  margin-bottom: 12px;
+}
+
+.character-panel {
+  background: linear-gradient(180deg, #fffbeb 0%, #fff7ed 100%);
+  border-color: #fde68a;
+}
+
+.character-card {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 26px;
+  padding: 16px;
+}
+
+.avatar-wrap {
+  border-radius: 24px;
+  background: linear-gradient(180deg, #fde68a 0%, #fed7aa 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.avatar {
+  font-size: 52px;
+  line-height: 1;
+}
+
+.avatar-text {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.sort-controls {
+  display: flex;
+  gap: 8px;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.sort-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.sort-btn.active {
+  background: #fff;
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+/* 기존 section-head 수정 (버튼이 옆으로 가도록) */
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.status-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 25px;
+  width: 100%;
+  gap: 12px;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.status-label-row span,
+.status-label-row strong {
+  font-size: 12px;
+}
+
+.status-label-row span {
+  color: #475569;
+}
+
+.status-track {
+  height: 10px;
+  background: #e2e8f0;
+}
+
+.status-track.exp {
+  background: #ffedd5;
+}
+
+.status-bar {
+  height: 100%;
+  background: #334155;
+  border-radius: 999px;
+}
+
+.status-bar.exp {
+  background: #f59e0b;
+}
+
+.reward-box {
+  margin-top: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.reward-title {
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.mission-list,
+.transaction-list {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mission-item,
+.transaction-item {
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 14px 16px;
+}
+
+.mission-title,
+.tx-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.mission-badge.done {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.mission-badge.doing {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.tx-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.tx-icon.income {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.tx-icon.expense {
+  background: #ffe4e6;
+  color: #e11d48;
+}
+
+.tx-amount {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.tx-amount.income {
+  color: #1d4ed8;
+}
+
+.tx-amount.expense {
+  color: #e11d48;
+}
+
+@media (max-width: 420px) {
+  .page {
+    padding: 14px;
+  }
+
+  .container {
+    gap: 14px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .character-card {
+    grid-template-columns: 1fr;
+  }
+
+  .asset-grid,
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+</style>

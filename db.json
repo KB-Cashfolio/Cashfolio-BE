@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": "0001",
+      "id": "1",
       "username": "한재윤",
       "email": "jaeyoon@example.com",
       "password": "pass1234",
@@ -28,31 +28,31 @@
       "ment": "와! 이제 비를 피할 수 있는 지붕이 생겼어요!"
     },
     {
-      "id": "2",
-      "level": 2,
-      "name": "박스 집 거지",
-      "img_path": "/images/beggar_lv2.png",
-      "ment": "와! 이제 비를 피할 수 있는 지붕이 생겼어요!"
+      "id": "3",
+      "level": 3,
+      "name": "폐지 줍는 초보",
+      "img_path": "/images/beggar_lv3.png",
+      "ment": "폐지를 모아 팔았더니 맛있는 삼각김밥을 먹을 수 있게 됐어요!"
     },
     {
-      "id": "2",
-      "level": 2,
-      "name": "박스 집 거지",
-      "img_path": "/images/beggar_lv2.png",
-      "ment": "와! 이제 비를 피할 수 있는 지붕이 생겼어요!"
+      "id": "4",
+      "level": 4,
+      "name": "고물상 꿈나무",
+      "img_path": "/images/beggar_lv4.png",
+      "ment": "제법 돈이 모이고 있어요. 곧 박스 집도 탈출할 수 있겠는걸요?"
     }
   ],
   "accounts": [
     {
-      "id": "0001",
-      "user_id": "user01",
+      "id": "1",
+      "user_id": 1,
       "bank": "KB국민은행",
       "acc_num": "123-4567-8901",
       "balance": 1250000
     },
     {
-      "id": "0002",
-      "user_id": "user01",
+      "id": "2",
+      "user_id": 1,
       "bank": "카카오뱅크",
       "acc_num": "3333-01-2222",
       "balance": 52300
@@ -60,34 +60,34 @@
   ],
   "transactions": [
     {
-      "id": "0001",
-      "user_id": "user01",
-      "account_id": "0001",
-      "date": "2026-04-01",
-      "amount": 8000,
-      "category": "식비",
-      "inandout_id": "out",
-      "memo": "편의점 도시락"
-    },
-    {
-      "id": "0002",
-      "user_id": "user01",
-      "account_id": "0002",
+      "id": "2",
+      "user_id": 2,
+      "account_id": 2,
       "date": "2026-04-02",
       "amount": 2500000,
       "category": "월급",
       "inandout_id": "in",
-      "memo": "3월 급여 입금"
+      "memo": "3월 급여"
     },
     {
-      "id": "0003",
-      "user_id": "user01",
-      "account_id": "002",
+      "id": "3",
+      "user_id": 1,
+      "account_id": 2,
       "date": "2026-04-05",
       "amount": 130000,
       "category": "교통비",
       "inandout_id": "out",
       "memo": "버스 요금"
+    },
+    {
+      "date": "2026-04-10",
+      "amount": 12000,
+      "category": "식비",
+      "inandout_id": "1",
+      "memo": "짜장면",
+      "user_id": "user01",
+      "account_id": "0001",
+      "id": "9h8UJkdi8Rg"
     }
   ],
   "inandout": [
@@ -97,7 +97,7 @@
       "type": "plus"
     },
     {
-      "id": "2",
+      "id": "1",
       "name": "지출",
       "type": "minus"
     }
