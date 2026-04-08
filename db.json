@@ -2,6 +2,7 @@
   "users": [
     {
       "id": "1",
+      "user_id": "cbfc904b-b898-4deb-b736-ba433489904c",
       "username": "한재윤",
       "email": "jaeyoon@example.com",
       "password": "pass1234",
@@ -60,34 +61,15 @@
   ],
   "transactions": [
     {
-      "id": "2",
-      "user_id": 2,
-      "account_id": 2,
-      "date": "2026-04-02",
-      "amount": 2500000,
-      "category": "월급",
-      "inandout_id": "in",
-      "memo": "3월 급여"
-    },
-    {
-      "id": "3",
-      "user_id": 1,
-      "account_id": 2,
-      "date": "2026-04-05",
-      "amount": 130000,
-      "category": "교통비",
-      "inandout_id": "out",
-      "memo": "버스 요금"
-    },
-    {
-      "date": "2026-04-10",
+      "date": "2026-04-08",
       "amount": 12000,
       "category": "식비",
-      "inandout_id": "1",
+      "inandout_id": "2",
+      "account_id": "1",
       "memo": "짜장면",
-      "user_id": "user01",
-      "account_id": "0001",
-      "id": "9h8UJkdi8Rg"
+      "user_id": "1",
+      "id": "0LEjl_f1tJc",
+      "txId": "20260408052051-21dv"
     }
   ],
   "inandout": [
@@ -97,7 +79,7 @@
       "type": "plus"
     },
     {
-      "id": "1",
+      "id": "2",
       "name": "지출",
       "type": "minus"
     }

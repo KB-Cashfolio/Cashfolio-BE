@@ -2,17 +2,36 @@
 import { ref, reactive, onMounted, computed } from 'vue';
 import api from '../services/api';
 import DeleteConfirmModal from '../components/DeleteConfirmModal.vue';
+import AlertModal from '../components/AlertModal.vue';
 
-// --- State (반응형 변수) ---
+// 반응형 변수
 const transactions = ref([]);
 const inandout = ref([]);
+const accounts = ref([]);
+
 const editMode = ref(false);
 const editId = ref(null);
+
 // 모달 상태 관리
 const isModalShow = ref(false);
+const isAlertShow = ref(false);
+const alertMsg = ref('');
 const targetId = ref(null);
+
 // 현재 정렬 기준 ('date' 또는 'amount')
 const currentSort = ref('date');
+
+const form = reactive({
+  date: new Date().toISOString().substr(0, 10),
+  amount: '',
+  category: '',
+  inandout_id: 1,
+  account_id: '',
+  memo: '',
+  user_id: '1',
+  account_id: '1',
+  id: '',
+});
 
 // 삭제 버튼 클릭 시 모달 띄우기
 const openDeleteModal = (id) => {
@@ -29,15 +48,11 @@ const confirmDelete = async () => {
   isModalShow.value = false;
 };
 
-const form = reactive({
-  date: new Date().toISOString().substr(0, 10),
-  amount: '',
-  category: '',
-  inandout_id: 'out',
-  memo: '',
-  user_id: 'user01',
-  account_id: '0001',
-});
+// 알림창 표시
+const showAlert = (msg) => {
+  alertMsg.value = msg;
+  isAlertShow.value = true;
+};
 
 // 통합 정렬 computed
 const displayTransactions = computed(() => {
@@ -80,9 +95,31 @@ const fetchInAndOut = async () => {
   }
 };
 
+const fetchAccounts = async () => {
+  try {
+    const res = await api.get('/accounts'); // 백엔드 엔드포인트에 맞춰 수정하세요
+    accounts.value = res.data;
+    // 초기 등록 시 첫 번째 계좌가 자동으로 선택되도록 설정
+    if (accounts.value.length > 0 && !form.account_id) {
+      form.account_id = accounts.value[0].id;
+    }
+  } catch (err) {
+    console.error('계좌 로드 실패', err);
+  }
+};
+
 // 추가
 const addTransaction = async () => {
-  if (!form.amount || !form.category) return alert('내용을 입력해주세요.');
+  if (!form.amount) {
+    showAlert('금액을 입력해주세요.');
+    return;
+  }
+  if (!form.category) {
+    showAlert('카테고리를 입력해주세요.');
+    return;
+  }
+
+  form.txId = generateTxId();
   await api.post('/transactions', form);
   resetForm();
   await fetchTransactions();
@@ -101,6 +138,17 @@ const updateTransaction = async () => {
   await api.put(`/transactions/${editId.value}`, form);
   resetForm();
   await fetchTransactions();
+};
+
+// 거래 내역 ID 생성
+const generateTxId = () => {
+  const now = new Date();
+  const timestamp = now
+    .toISOString()
+    .replace(/[-T:.Z]/g, '')
+    .slice(0, 14);
+  const randomPart = Math.random().toString(36).substring(2, 6);
+  return `${timestamp}-${randomPart}`;
 };
 
 // // 삭제
@@ -123,10 +171,10 @@ const resetForm = () => {
     date: new Date().toISOString().substr(0, 10),
     amount: '',
     category: '',
-    inandout_id: 'out',
+    inandout_id: '1',
     memo: '',
-    user_id: 'user01',
-    account_id: '0001',
+    user_id: '1',
+    account_id: '',
   });
 };
 
@@ -134,7 +182,21 @@ const resetForm = () => {
 onMounted(() => {
   fetchTransactions();
   fetchInAndOut();
+  fetchAccounts();
 });
+
+const getAccountDisplayName = (acc) => {
+  if (!acc) return '';
+  // 계좌번호 뒷 4자리만 추출 (보안 및 가독성)
+  const lastFour = acc.acc_num.slice(-4);
+  return `${acc.bank} (..${lastFour})`;
+};
+
+// 리스트에서 account_id로 표시용 텍스트 찾기
+const getAccountName = (id) => {
+  const found = accounts.value.find((a) => a.id === String(id)); // id 타입(문자/숫자) 체크
+  return found ? found.bank : '알 수 없는 계좌';
+};
 </script>
 
 <template>
@@ -160,7 +222,7 @@ onMounted(() => {
               type="number"
               v-model="form.amount"
               placeholder="0"
-              class="custom-input"
+              class="custom-input amount-input"
             />
           </div>
 
@@ -185,6 +247,15 @@ onMounted(() => {
                 </option>
               </select>
             </div>
+          </div>
+
+          <div class="status-item">
+            <div class="status-label-row"><span>계좌</span></div>
+            <select v-model="form.account_id" class="custom-input">
+              <option v-for="acc in accounts" :key="acc.id" :value="acc.id">
+                {{ acc.bank }} - {{ acc.acc_num.slice(-4) }}
+              </option>
+            </select>
           </div>
 
           <div class="status-item">
@@ -254,14 +325,17 @@ onMounted(() => {
               <div
                 :class="[
                   'tx-icon',
-                  tx.inandout_id === 'in' ? 'income' : 'expense',
+                  tx.inandout_id === '1' ? 'income' : 'expense',
                 ]"
               >
                 {{ tx.category?.charAt(0) || 'Etc' }}
               </div>
               <div>
                 <p class="tx-title">{{ tx.category }}</p>
-                <p class="tx-meta">{{ tx.date }} | {{ tx.memo }}</p>
+                <p class="tx-meta">
+                  {{ tx.date }} | {{ getAccountName(tx.account_id) }} |
+                  {{ tx.memo }}
+                </p>
               </div>
             </div>
 
@@ -269,10 +343,10 @@ onMounted(() => {
               <p
                 :class="[
                   'tx-amount',
-                  tx.inandout_id === 'in' ? 'income' : 'expense',
+                  tx.inandout_id === '1' ? 'income' : 'expense',
                 ]"
               >
-                {{ tx.inandout_id === 'in' ? '+' : '-'
+                {{ tx.inandout_id === '1' ? '+' : '-'
                 }}{{ Number(tx.amount).toLocaleString() }}원
               </p>
               <div
@@ -306,6 +380,11 @@ onMounted(() => {
                   :show="isModalShow"
                   @confirm="confirmDelete"
                   @cancel="isModalShow = false"
+                />
+                <AlertModal
+                  :show="isAlertShow"
+                  :message="alertMsg"
+                  @close="isAlertShow = false"
                 />
               </div>
             </div>
@@ -775,5 +854,24 @@ h3 {
   .category-grid {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+/* Chrome, Safari, Edge, Opera에서 증감 버튼 제거 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox에서 증감 버튼 제거 */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* 추가 팁: 금액 입력창은 우측 정렬이 가독성이 좋을 수 있습니다 (선택사항) */
+.amount-input {
+  text-align: right;
+  font-weight: 600;
+  color: #0f172a;
 }
 </style>

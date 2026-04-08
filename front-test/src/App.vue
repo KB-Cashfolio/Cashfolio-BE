@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style>
+<!-- <style>
 /* 전역 스타일 설정 */
 body {
   margin: 0;
@@ -51,4 +51,4 @@ body {
 .nav-links a.active {
   color: #0f172a;
 }
-</style>
+</style> -->
