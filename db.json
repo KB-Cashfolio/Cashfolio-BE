@@ -62,7 +62,7 @@
   "transactions": [
     {
       "date": "2026-04-22",
-      "amount": 300000,
+      "amount": 3000000,
       "category": "용돈",
       "inandout_id": "1",
       "account_id": "4sd1313sAS",

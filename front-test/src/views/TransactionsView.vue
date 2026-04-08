@@ -1,25 +1,24 @@
 <script setup>
-import { ref, reactive, onMounted, computed } from 'vue';
-import api from '../services/api';
+import { ref, reactive, onMounted } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useTransactionStore } from '../stores/transaction'; // 경로에 맞게 수정하세요
 import DeleteConfirmModal from '../components/DeleteConfirmModal.vue';
 import AlertModal from '../components/AlertModal.vue';
 
-// 반응형 변수
-const transactions = ref([]);
-const inandout = ref([]);
-const accounts = ref([]);
+const store = useTransactionStore();
 
+// Store의 반응형 상태를 View에서 바로 사용하기 위해 추출
+const { inandout, accounts, currentSort, displayTransactions } =
+  storeToRefs(store);
+
+// UI/로컬 상태 관리
 const editMode = ref(false);
 const editId = ref(null);
 
-// 모달 상태 관리
 const isModalShow = ref(false);
 const isAlertShow = ref(false);
 const alertMsg = ref('');
 const targetId = ref(null);
-
-// 현재 정렬 기준 ('date' 또는 'amount')
-const currentSort = ref('date');
 
 const form = reactive({
   date: new Date().toISOString().substr(0, 10),
@@ -29,24 +28,10 @@ const form = reactive({
   account_id: '',
   memo: '',
   user_id: '1',
-  account_id: '1',
   id: '',
 });
 
-// 삭제 버튼 클릭 시 모달 띄우기
-const openDeleteModal = (id) => {
-  targetId.value = id;
-  isModalShow.value = true;
-};
-
-// 실제 삭제 실행
-const confirmDelete = async () => {
-  if (targetId.value) {
-    await api.delete(`/transactions/${targetId.value}`);
-    await fetchTransactions();
-  }
-  isModalShow.value = false;
-};
+// --- Actions ---
 
 // 알림창 표시
 const showAlert = (msg) => {
@@ -54,102 +39,43 @@ const showAlert = (msg) => {
   isAlertShow.value = true;
 };
 
-// 통합 정렬 computed
-const displayTransactions = computed(() => {
-  const list = [...transactions.value];
-
-  if (currentSort.value === 'date') {
-    // 최신 날짜순 (날짜가 같으면 최신 ID순)
-    return list.sort(
-      (a, b) => new Date(b.date) - new Date(a.date) || b.id - a.id,
-    );
-  } else {
-    // 금액 높은순
-    return list.sort((a, b) => b.amount - a.amount);
-  }
-});
-
-// 정렬 변경 함수
-const setSort = (type) => {
-  currentSort.value = type;
+// 삭제 관련
+const openDeleteModal = (id) => {
+  targetId.value = id;
+  isModalShow.value = true;
 };
 
-// --- Actions (함수) ---
-
-// 데이터 로드
-const fetchTransactions = async () => {
-  try {
-    const res = await api.get('/transactions');
-    transactions.value = res.data;
-  } catch (err) {
-    console.error('데이터 로드 실패', err);
+const confirmDelete = async () => {
+  if (targetId.value) {
+    await store.deleteTransaction(targetId.value);
   }
-};
-
-const fetchInAndOut = async () => {
-  try {
-    const res = await api.get('/inandout');
-    inandout.value = res.data;
-  } catch (err) {
-    console.error('공통코드 로드 실패', err);
-  }
-};
-
-const fetchAccounts = async () => {
-  try {
-    const res = await api.get('/accounts'); // 백엔드 엔드포인트에 맞춰 수정하세요
-    accounts.value = res.data;
-    // 초기 등록 시 첫 번째 계좌가 자동으로 선택되도록 설정
-    if (accounts.value.length > 0 && !form.account_id) {
-      form.account_id = accounts.value[0].id;
-    }
-  } catch (err) {
-    console.error('계좌 로드 실패', err);
-  }
+  isModalShow.value = false;
 };
 
 // 추가
-const addTransaction = async () => {
-  if (!form.amount) {
-    showAlert('금액을 입력해주세요.');
-    return;
-  }
-  if (!form.category) {
-    showAlert('카테고리를 입력해주세요.');
-    return;
-  }
+const handleAddTransaction = async () => {
+  if (!form.amount) return showAlert('금액을 입력해주세요.');
+  if (!form.category) return showAlert('카테고리를 입력해주세요.');
 
-  await api.post('/transactions', form);
+  await store.addTransaction(form);
   resetForm();
-  await fetchTransactions();
 };
 
-// 수정 모드 선택
+// 수정 모드 진입
 const selectTransaction = (tx) => {
-  Object.assign(form, tx); // 객체 복사
+  Object.assign(form, tx);
   editMode.value = true;
   editId.value = tx.id;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 // 수정 완료
-const updateTransaction = async () => {
-  // await api.put(`/transactions?tx_id=${editId.value}`, form);
-  await api.put(`/transactions/${editId.value}`, form);
-  console.log();
+const handleUpdateTransaction = async () => {
+  await store.updateTransaction(editId.value, form);
   resetForm();
-  await fetchTransactions();
 };
 
-// // 삭제
-// const deleteTransaction = async (id) => {
-//   if (confirm('정말 삭제하시겠습니까?')) {
-//     await api.delete(`/transactions/${id}`);
-//     await fetchTransactions();
-//   }
-// };
-
-// 취소 및 폼 초기화
+// 폼 초기화
 const cancelEdit = () => {
   resetForm();
 };
@@ -164,30 +90,22 @@ const resetForm = () => {
     inandout_id: '1',
     memo: '',
     user_id: '1',
-    tx_id: '',
-    account_id: '',
+    account_id: accounts.value.length > 0 ? accounts.value[0].id : '',
+    id: '',
   });
 };
 
 // --- Lifecycle ---
-onMounted(() => {
-  fetchTransactions();
-  fetchInAndOut();
-  fetchAccounts();
+onMounted(async () => {
+  await store.fetchTransactions();
+  await store.fetchInAndOut();
+  await store.fetchAccounts();
+
+  // 초기 등록 시 첫 번째 계좌가 자동으로 선택되도록 설정
+  if (accounts.value.length > 0 && !form.account_id) {
+    form.account_id = accounts.value[0].id;
+  }
 });
-
-const getAccountDisplayName = (acc) => {
-  if (!acc) return '';
-  // 계좌번호 뒷 4자리만 추출 (보안 및 가독성)
-  const lastFour = acc.acc_num.slice(-4);
-  return `${acc.bank} (..${lastFour})`;
-};
-
-// 리스트에서 account_id로 표시용 텍스트 찾기
-const getAccountName = (id) => {
-  const found = accounts.value.find((a) => a.id === String(id)); // id 타입(문자/숫자) 체크
-  return found ? found.bank : '알 수 없는 계좌';
-};
 </script>
 
 <template>
@@ -262,7 +180,7 @@ const getAccountName = (id) => {
         <div style="margin-top: 20px">
           <button
             v-if="!editMode"
-            @click="addTransaction"
+            @click="handleAddTransaction"
             class="quick-btn"
             style="width: 100%"
           >
@@ -270,7 +188,7 @@ const getAccountName = (id) => {
           </button>
           <div v-else style="display: flex; gap: 8px">
             <button
-              @click="updateTransaction"
+              @click="handleUpdateTransaction"
               class="quick-btn"
               style="width: 70%"
             >
@@ -293,13 +211,13 @@ const getAccountName = (id) => {
           <div class="sort-controls">
             <button
               :class="['sort-btn', { active: currentSort === 'date' }]"
-              @click="setSort('date')"
+              @click="store.setSort('date')"
             >
               최신순
             </button>
             <button
               :class="['sort-btn', { active: currentSort === 'amount' }]"
-              @click="setSort('amount')"
+              @click="store.setSort('amount')"
             >
               금액순
             </button>
@@ -324,7 +242,7 @@ const getAccountName = (id) => {
               <div>
                 <p class="tx-title">{{ tx.category }}</p>
                 <p class="tx-meta">
-                  {{ tx.date }} | {{ getAccountName(tx.account_id) }} |
+                  {{ tx.date }} | {{ store.getAccountName(tx.account_id) }} |
                   {{ tx.memo }}
                 </p>
               </div>
