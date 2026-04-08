@@ -52,7 +52,7 @@
       "balance": 1250000
     },
     {
-      "id": "KDF3D8eqwd",
+      "id": "ADagw12-a3qw",
       "user_id": 1,
       "bank": "카카오뱅크",
       "acc_num": "3333-01-2222",
@@ -61,30 +61,22 @@
   ],
   "transactions": [
     {
-      "date": "2026-04-08",
-      "amount": 12000,
-      "category": "식비",
-      "inandout_id": "2",
-      "account_id": "1",
-      "memo": "짜장면",
-      "id": "0LEjl_f1tJc"
-    },
-    {
-      "date": "2026-04-08",
+      "date": "2026-04-22",
       "amount": 30000,
-      "category": "취미",
-      "inandout_id": "2",
-      "account_id": "1",
-      "memo": "구매",
+      "category": "용돈",
+      "inandout_id": "1",
+      "account_id": "KDF3D8eqwd",
+      "memo": "나이스",
       "user_id": "1",
-      "id": "0LEjl_f1tJc"
+      "id": "0LEjl_f1tJc",
+      "tx_id": ""
     },
     {
       "date": "2026-04-22",
       "amount": 30000,
       "category": "용돈",
       "inandout_id": "1",
-      "account_id": "2",
+      "account_id": "4sd1313sAS",
       "memo": "나이스",
       "user_id": "1",
       "id": "0LEjl_f1tJc"
