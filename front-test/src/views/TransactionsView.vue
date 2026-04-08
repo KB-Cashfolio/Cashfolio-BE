@@ -119,7 +119,6 @@ const addTransaction = async () => {
     return;
   }
 
-  form.tx_id = generateTxId();
   await api.post('/transactions', form);
   resetForm();
   await fetchTransactions();
@@ -140,17 +139,6 @@ const updateTransaction = async () => {
   console.log();
   resetForm();
   await fetchTransactions();
-};
-
-// 거래 내역 ID 생성
-const generateTxId = () => {
-  const now = new Date();
-  const timestamp = now
-    .toISOString()
-    .replace(/[-T:.Z]/g, '')
-    .slice(0, 14);
-  const randomPart = Math.random().toString(36).substring(2, 6);
-  return `${timestamp}-${randomPart}`;
 };
 
 // // 삭제
