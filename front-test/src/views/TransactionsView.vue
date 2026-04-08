@@ -119,7 +119,7 @@ const addTransaction = async () => {
     return;
   }
 
-  form.txId = generateTxId();
+  form.tx_id = generateTxId();
   await api.post('/transactions', form);
   resetForm();
   await fetchTransactions();
@@ -135,7 +135,9 @@ const selectTransaction = (tx) => {
 
 // 수정 완료
 const updateTransaction = async () => {
+  // await api.put(`/transactions?tx_id=${editId.value}`, form);
   await api.put(`/transactions/${editId.value}`, form);
+  console.log();
   resetForm();
   await fetchTransactions();
 };
@@ -174,6 +176,7 @@ const resetForm = () => {
     inandout_id: '1',
     memo: '',
     user_id: '1',
+    tx_id: '',
     account_id: '',
   });
 };

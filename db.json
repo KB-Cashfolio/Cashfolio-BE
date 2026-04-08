@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": "0Lasf-tsJc",
       "user_id": "cbfc904b-b898-4deb-b736-ba433489904c",
       "username": "한재윤",
       "email": "jaeyoon@example.com",
@@ -45,14 +45,14 @@
   ],
   "accounts": [
     {
-      "id": "1",
+      "id": "4sd1313sAS",
       "user_id": 1,
       "bank": "KB국민은행",
       "acc_num": "123-4567-8901",
       "balance": 1250000
     },
     {
-      "id": "2",
+      "id": "KDF3D8eqwd",
       "user_id": 1,
       "bank": "카카오뱅크",
       "acc_num": "3333-01-2222",
@@ -67,9 +67,27 @@
       "inandout_id": "2",
       "account_id": "1",
       "memo": "짜장면",
+      "id": "0LEjl_f1tJc"
+    },
+    {
+      "date": "2026-04-08",
+      "amount": 30000,
+      "category": "취미",
+      "inandout_id": "2",
+      "account_id": "1",
+      "memo": "구매",
       "user_id": "1",
-      "id": "0LEjl_f1tJc",
-      "txId": "20260408052051-21dv"
+      "id": "0LEjl_f1tJc"
+    },
+    {
+      "date": "2026-04-22",
+      "amount": 30000,
+      "category": "용돈",
+      "inandout_id": "1",
+      "account_id": "2",
+      "memo": "나이스",
+      "user_id": "1",
+      "id": "0LEjl_f1tJc"
     }
   ],
   "inandout": [
