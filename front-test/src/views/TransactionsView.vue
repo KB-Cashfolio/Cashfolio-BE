@@ -132,6 +132,7 @@ onMounted(async () => {
   await store.fetchInAndOut();
   await store.fetchCategories();
   await store.fetchAccounts();
+  await store.fetchBanks();
 
   // 초기 등록 시 첫 번째 계좌가 자동으로 선택되도록 설정
   if (accounts.value.length > 0 && !form.account_id) {
@@ -201,7 +202,7 @@ onMounted(async () => {
             <div class="status-label-row"><span>계좌</span></div>
             <select v-model="form.account_id" class="custom-input">
               <option v-for="acc in accounts" :key="acc.id" :value="acc.id">
-                {{ acc.bank }} - {{ acc.acc_num.slice(-4) }}
+                {{ store.getAccountName(acc.id) }}
               </option>
             </select>
           </div>

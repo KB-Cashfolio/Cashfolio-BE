@@ -8,6 +8,8 @@ export const useTransactionStore = defineStore('transaction', () => {
   const inandout = ref([]); // 수입, 지출
   const accounts = ref([]); // 계좌 정보
   const categories = ref([]); // 카테고리 정보
+  const banks = ref([]); // 은행 정보
+
   const currentSort = ref('date'); // 현재 조회 정렬 방식
 
   // --- Getters (계산된 상태) ---
@@ -24,11 +26,16 @@ export const useTransactionStore = defineStore('transaction', () => {
     }
   });
 
-  // 계좌 은행명
+  // 계좌 은행명과 계좌번호 뒤 4자리
   const getAccountName = computed(() => {
     return (id) => {
-      const found = accounts.value.find((a) => a.id === String(id));
-      return found ? found.bank : '알 수 없는 계좌';
+      const account = accounts.value.find((a) => a.id === String(id));
+      if (!account) return '알 수 없는 계좌';
+
+      const bank = banks.value.find((b) => b.id === account.bank_id);
+      const bankName = bank ? bank.abbr_name : account.bank_id;
+
+      return `${bankName} - ${account.acc_num.slice(-4)}`;
     };
   });
 
@@ -39,6 +46,7 @@ export const useTransactionStore = defineStore('transaction', () => {
       return found ? found.name : '기타';
     };
   });
+
   // 카테고리 ID를 통해 수입/지출(type_id) 판별하기 (추가)
   const getCategoryType = computed(() => {
     return (categoryId) => {
@@ -94,6 +102,16 @@ export const useTransactionStore = defineStore('transaction', () => {
     }
   };
 
+  // 은행 정보 가져오기
+  const fetchBanks = async () => {
+    try {
+      const res = await api.get('/bank');
+      banks.value = res.data;
+    } catch (err) {
+      console.error('은행정보 로드 실패', err);
+    }
+  };
+
   // 거래 내역 추가
   const addTransaction = async (payload) => {
     await api.post('/transactions', payload);
@@ -117,6 +135,7 @@ export const useTransactionStore = defineStore('transaction', () => {
     inandout,
     accounts,
     categories,
+    banks,
     currentSort,
     displayTransactions,
     getAccountName,
@@ -127,6 +146,7 @@ export const useTransactionStore = defineStore('transaction', () => {
     fetchInAndOut,
     fetchAccounts,
     fetchCategories,
+    fetchBanks,
     addTransaction,
     updateTransaction,
     deleteTransaction,

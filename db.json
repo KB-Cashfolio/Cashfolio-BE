@@ -58,14 +58,14 @@
     {
       "id": "4sd1313sAS",
       "user_id": "0Lasf-tsJc",
-      "bank": "KB국민은행",
+      "bank_id": "KB",
       "acc_num": "123-4567-8901",
       "balance": 1250000
     },
     {
       "id": "ADagw12-a3qw",
       "user_id": "0Lasf-tsJc",
-      "bank": "카카오뱅크",
+      "bank_id": "SH",
       "acc_num": "3333-01-2222",
       "balance": 52300
     }
@@ -113,7 +113,23 @@
       "type": "minus"
     }
   ],
-
+  "bank": [
+    {
+      "id": "KB",
+      "name": "KB국민은행",
+      "abbr_name": "KB국민"
+    },
+    {
+      "id": "SH",
+      "name": "신한은행",
+      "abbr_name": "신한"
+    },
+    {
+      "id": "HN",
+      "name": "하나은행",
+      "abbr_name": "하나"
+    }
+  ],
   "category": [
     {
       "id": "1",
