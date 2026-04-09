@@ -4,10 +4,10 @@ import api from '../services/api';
 
 export const useTransactionStore = defineStore('transaction', () => {
   // --- State (상태) ---
-  const transactions = ref([]);
-  const inandout = ref([]);
-  const accounts = ref([]);
-  const currentSort = ref('date');
+  const transactions = ref([]); // 거래내역
+  const inandout = ref([]); // 수입, 지출
+  const accounts = ref([]); // 계좌 정보
+  const currentSort = ref('date'); // 현재 조회 정렬 방식
 
   // --- Getters (계산된 상태) ---
   const displayTransactions = computed(() => {
@@ -23,6 +23,7 @@ export const useTransactionStore = defineStore('transaction', () => {
     }
   });
 
+  // 계좌 은행명
   const getAccountName = computed(() => {
     return (id) => {
       const found = accounts.value.find((a) => a.id === String(id));
@@ -31,10 +32,13 @@ export const useTransactionStore = defineStore('transaction', () => {
   });
 
   // --- Actions (메서드) ---
+
+  // 조회 정렬 방식 변경
   const setSort = (type) => {
     currentSort.value = type;
   };
 
+  // 거래 내역 가져오기
   const fetchTransactions = async () => {
     try {
       const res = await api.get('/transactions');
@@ -44,6 +48,7 @@ export const useTransactionStore = defineStore('transaction', () => {
     }
   };
 
+  // 수입, 지출 방식 가져오기
   const fetchInAndOut = async () => {
     try {
       const res = await api.get('/inandout');
@@ -53,6 +58,7 @@ export const useTransactionStore = defineStore('transaction', () => {
     }
   };
 
+  // 계좌 정보 가져오기
   const fetchAccounts = async () => {
     try {
       const res = await api.get('/accounts');
@@ -62,16 +68,19 @@ export const useTransactionStore = defineStore('transaction', () => {
     }
   };
 
+  // 거래 내역 추가
   const addTransaction = async (payload) => {
     await api.post('/transactions', payload);
     await fetchTransactions(); // 저장 후 목록 갱신
   };
 
+  // 거래 내역 업데이트
   const updateTransaction = async (id, payload) => {
     await api.put(`/transactions/${id}`, payload);
     await fetchTransactions();
   };
 
+  // 거래 내역 삭제
   const deleteTransaction = async (id) => {
     await api.delete(`/transactions/${id}`);
     await fetchTransactions();

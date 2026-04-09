@@ -2,7 +2,6 @@
   "users": [
     {
       "id": "0Lasf-tsJc",
-      "user_id": "cbfc904b-b898-4deb-b736-ba433489904c",
       "username": "한재윤",
       "email": "jaeyoon@example.com",
       "password": "pass1234",
@@ -46,14 +45,14 @@
   "accounts": [
     {
       "id": "4sd1313sAS",
-      "user_id": 1,
+      "user_id": "0Lasf-tsJc",
       "bank": "KB국민은행",
       "acc_num": "123-4567-8901",
       "balance": 1250000
     },
     {
       "id": "ADagw12-a3qw",
-      "user_id": 1,
+      "user_id": "0Lasf-tsJc",
       "bank": "카카오뱅크",
       "acc_num": "3333-01-2222",
       "balance": 52300
@@ -62,12 +61,12 @@
   "transactions": [
     {
       "date": "2026-04-22",
-      "amount": 3000000,
+      "amount": 25000,
       "category": "용돈",
       "inandout_id": "1",
       "account_id": "4sd1313sAS",
       "memo": "엄마",
-      "user_id": "1",
+      "user_id": "0Lasf-tsJc",
       "id": "0LEjl_f1tJc"
     },
     {
@@ -77,7 +76,7 @@
       "inandout_id": "1",
       "account_id": "4sd1313sAS",
       "memo": "나이스",
-      "user_id": "1",
+      "user_id": "0Lasf-tsJc",
       "id": "0LEjl_f1tJc"
     },
     {
@@ -87,7 +86,7 @@
       "inandout_id": "2",
       "account_id": "ADagw12-a3qw",
       "memo": "",
-      "user_id": "1",
+      "user_id": "0Lasf-tsJc",
       "id": "KGD33bouX38"
     }
   ],
