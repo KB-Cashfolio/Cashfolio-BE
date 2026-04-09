@@ -1,5 +1,16 @@
+@font-face {
+  font-family: 'bmdh';
+  src: url('../src/fonts/BMDOHYEON.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'bmja';
+  src: url('../src/fonts/BMJUA.ttf') format('truetype');
+}
+
 * {
   box-sizing: border-box;
+  font-family: 'bmdh';
 }
 
 /* 이전과 동일한 스타일 코드 */
@@ -23,7 +34,7 @@
   background: #f8fafc;
   padding: 20px;
   color: #0f172a;
-  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  /* font-family: 'Pretendard', 'Noto Sans KR', sans-serif; */
 }
 
 .container {

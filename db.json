@@ -16,30 +16,42 @@
     {
       "id": "1",
       "level": 1,
-      "name": "길바닥 거지",
+      "name": "뚜벅이",
       "img_path": "/images/beggar_lv1.png",
-      "ment": "배가 고파요... 저축해서 탈출시켜주세요!"
+      "title": "잔고 지키러 뚜벅뚜벅",
+      "ment": "숨만 쉬어도 돈이 나가는 세상. 그래도 오늘은 텅장을 무사히 지켜냈어요!"
     },
     {
       "id": "2",
       "level": 2,
-      "name": "박스 집 거지",
+      "name": "따릉이",
       "img_path": "/images/beggar_lv2.png",
-      "ment": "와! 이제 비를 피할 수 있는 지붕이 생겼어요!"
+      "title": "가성비 탑승 완료",
+      "ment": "배달비 아껴서 부자 될 관상. 한 푼 두 푼 세이브하는 재미를 알아버렸네요."
     },
     {
       "id": "3",
       "level": 3,
-      "name": "폐지 줍는 초보",
+      "name": "오토바이",
       "img_path": "/images/beggar_lv3.png",
-      "ment": "폐지를 모아 팔았더니 맛있는 삼각김밥을 먹을 수 있게 됐어요!"
+      "title": "충동구매 회피 만렙",
+      "ment": "특가 할인 알림도 요리조리 잘 피해 갑니다. 지출 방어에 제대로 속도가 붙었어요."
     },
     {
       "id": "4",
       "level": 4,
-      "name": "고물상 꿈나무",
+      "name": "자동차",
       "img_path": "/images/beggar_lv4.png",
-      "ment": "제법 돈이 모이고 있어요. 곧 박스 집도 탈출할 수 있겠는걸요?"
+      "title": "안정적인 잔고 주행",
+      "ment": "웬만한 지름신 유혹에는 창문도 안 내립니다. 통장에 아주 평화로운 시기가 찾아왔어요."
+    },
+    {
+      "id": "5",
+      "level": 5,
+      "name": "사이버트럭",
+      "img_path": "/images/beggar_lv5.png",
+      "title": "과소비 철벽 방어",
+      "ment": "망치로 내리쳐도 안 깨지는 철벽 방어력. 이 폼 그대로 유지하면 조만간 집 삽니다."
     }
   ],
   "accounts": [
@@ -61,33 +73,32 @@
   "transactions": [
     {
       "date": "2026-04-22",
-      "amount": 25000,
-      "category": "용돈",
-      "inandout_id": "1",
+      "amount": 3000000,
+      "inandout_id": 1,
       "account_id": "4sd1313sAS",
-      "memo": "엄마",
+      "memo": "ㄴㅇㅅ",
       "user_id": "0Lasf-tsJc",
-      "id": "0LEjl_f1tJc"
-    },
-    {
-      "date": "2026-04-22",
-      "amount": 30000,
-      "category": "용돈",
-      "inandout_id": "1",
-      "account_id": "4sd1313sAS",
-      "memo": "나이스",
-      "user_id": "0Lasf-tsJc",
-      "id": "0LEjl_f1tJc"
+      "id": "0LEjl_f1tJc",
+      "category_id": "2"
     },
     {
       "date": "2026-04-08",
-      "amount": 1222,
-      "category": "교통",
-      "inandout_id": "2",
+      "amount": 12000,
+      "category_id": "6",
       "account_id": "ADagw12-a3qw",
       "memo": "",
       "user_id": "0Lasf-tsJc",
       "id": "KGD33bouX38"
+    },
+    {
+      "date": "2026-04-09",
+      "amount": 200000,
+      "inandout_id": "1",
+      "account_id": "ADagw12-a3qw",
+      "memo": "토토",
+      "user_id": "0Lasf-tsJc",
+      "id": "zNzfW83ZPtc",
+      "category_id": "10"
     }
   ],
   "inandout": [
@@ -100,6 +111,59 @@
       "id": "2",
       "name": "지출",
       "type": "minus"
+    }
+  ],
+
+  "category": [
+    {
+      "id": "1",
+      "name": "용돈",
+      "type_id": "1"
+    },
+    {
+      "id": "2",
+      "name": "장학금",
+      "type_id": "1"
+    },
+    {
+      "id": "3",
+      "name": "이자",
+      "type_id": "1"
+    },
+    {
+      "id": "4",
+      "name": "알바",
+      "type_id": "1"
+    },
+    {
+      "id": "5",
+      "name": "식비",
+      "type_id": "2"
+    },
+    {
+      "id": "6",
+      "name": "교통비",
+      "type_id": "2"
+    },
+    {
+      "id": "7",
+      "name": "쇼핑, 편의점",
+      "type_id": "2"
+    },
+    {
+      "id": "8",
+      "name": "의료, 건강",
+      "type_id": "2"
+    },
+    {
+      "id": "9",
+      "name": "기타",
+      "type_id": "1"
+    },
+    {
+      "id": "10",
+      "name": "기타",
+      "type_id": "2"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

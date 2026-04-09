@@ -7,6 +7,7 @@ export const useTransactionStore = defineStore('transaction', () => {
   const transactions = ref([]); // 거래내역
   const inandout = ref([]); // 수입, 지출
   const accounts = ref([]); // 계좌 정보
+  const categories = ref([]); // 카테고리 정보
   const currentSort = ref('date'); // 현재 조회 정렬 방식
 
   // --- Getters (계산된 상태) ---
@@ -28,6 +29,21 @@ export const useTransactionStore = defineStore('transaction', () => {
     return (id) => {
       const found = accounts.value.find((a) => a.id === String(id));
       return found ? found.bank : '알 수 없는 계좌';
+    };
+  });
+
+  // 카테고리 이름 가져오기 (추가)
+  const getCategoryName = computed(() => {
+    return (categoryId) => {
+      const found = categories.value.find((c) => c.id === String(categoryId));
+      return found ? found.name : '기타';
+    };
+  });
+  // 카테고리 ID를 통해 수입/지출(type_id) 판별하기 (추가)
+  const getCategoryType = computed(() => {
+    return (categoryId) => {
+      const found = categories.value.find((c) => c.id === String(categoryId));
+      return found ? found.type_id : null; // '1': 수입, '2': 지출
     };
   });
 
@@ -68,6 +84,16 @@ export const useTransactionStore = defineStore('transaction', () => {
     }
   };
 
+  // 카테고리 정보 가져오기 (추가)
+  const fetchCategories = async () => {
+    try {
+      const res = await api.get('/category');
+      categories.value = res.data;
+    } catch (err) {
+      console.error('카테고리 로드 실패', err);
+    }
+  };
+
   // 거래 내역 추가
   const addTransaction = async (payload) => {
     await api.post('/transactions', payload);
@@ -90,13 +116,17 @@ export const useTransactionStore = defineStore('transaction', () => {
     transactions,
     inandout,
     accounts,
+    categories,
     currentSort,
     displayTransactions,
     getAccountName,
+    getCategoryName,
+    getCategoryType,
     setSort,
     fetchTransactions,
     fetchInAndOut,
     fetchAccounts,
+    fetchCategories,
     addTransaction,
     updateTransaction,
     deleteTransaction,
