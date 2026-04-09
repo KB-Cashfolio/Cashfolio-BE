@@ -25,8 +25,7 @@ const selectedType = ref('1');
 const form = reactive({
   date: new Date().toISOString().substr(0, 10),
   amount: '',
-  category: '',
-  inandout_id: 1,
+  category_id: '',
   account_id: '',
   memo: '',
   user_id: '1',
@@ -118,7 +117,6 @@ const resetForm = () => {
     amount: '',
     category_id:
       filteredCategories.value.length > 0 ? filteredCategories.value[0].id : '',
-    inandout_id: '1',
     memo: '',
     user_id: '0Lasf-tsJc',
     account_id: accounts.value.length > 0 ? accounts.value[0].id : '',

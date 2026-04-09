@@ -72,33 +72,31 @@
   ],
   "transactions": [
     {
-      "date": "2026-04-22",
-      "amount": 3000000,
-      "inandout_id": 1,
+      "id": "JTsUy33UjD0",
+      "user_id": "0Lasf-tsJc",
       "account_id": "4sd1313sAS",
-      "memo": "ㄴㅇㅅ",
-      "user_id": "0Lasf-tsJc",
-      "id": "0LEjl_f1tJc",
-      "category_id": "2"
-    },
-    {
-      "date": "2026-04-08",
-      "amount": 12000,
-      "category_id": "6",
-      "account_id": "ADagw12-a3qw",
-      "memo": "",
-      "user_id": "0Lasf-tsJc",
-      "id": "KGD33bouX38"
-    },
-    {
+      "category_id": "5",
       "date": "2026-04-09",
-      "amount": 200000,
-      "inandout_id": "1",
-      "account_id": "ADagw12-a3qw",
-      "memo": "토토",
+      "amount": 20000,
+      "memo": "커피 사주세요"
+    },
+    {
+      "id": "_MAlpnRj0dQ",
       "user_id": "0Lasf-tsJc",
-      "id": "zNzfW83ZPtc",
-      "category_id": "10"
+      "account_id": "4sd1313sAS",
+      "category_id": "9",
+      "date": "2026-04-09",
+      "amount": 12000,
+      "memo": "ㅋㅋ"
+    },
+    {
+      "id": "7z5mqP7M3D8",
+      "user_id": "1",
+      "account_id": "ADagw12-a3qw",
+      "category_id": "0Lasf-tsJc",
+      "date": "2026-04-09",
+      "amount": 12000,
+      "memo": ""
     }
   ],
   "inandout": [
