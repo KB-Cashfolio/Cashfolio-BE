@@ -17,7 +17,7 @@
       "id": "1",
       "level": 1,
       "name": "뚜벅이",
-      "img_path": "/images/beggar_lv1.png",
+      "img_path": "https://github.com/user-attachments/assets/4edfd83f-607a-453a-9746-857231439653",
       "title": "잔고 지키러 뚜벅뚜벅",
       "ment": "숨만 쉬어도 돈이 나가는 세상. 그래도 오늘은 텅장을 무사히 지켜냈어요!"
     },
@@ -25,7 +25,7 @@
       "id": "2",
       "level": 2,
       "name": "따릉이",
-      "img_path": "/images/beggar_lv2.png",
+      "img_path": "https://github.com/user-attachments/assets/e0901d61-2a40-4767-ba82-5e8feae0beb9",
       "title": "가성비 탑승 완료",
       "ment": "배달비 아껴서 부자 될 관상. 한 푼 두 푼 세이브하는 재미를 알아버렸네요."
     },
@@ -33,7 +33,7 @@
       "id": "3",
       "level": 3,
       "name": "오토바이",
-      "img_path": "/images/beggar_lv3.png",
+      "img_path": "https://github.com/user-attachments/assets/b0bab4ac-d2dd-470f-9bcd-aac3fda2d8f6",
       "title": "충동구매 회피 만렙",
       "ment": "특가 할인 알림도 요리조리 잘 피해 갑니다. 지출 방어에 제대로 속도가 붙었어요."
     },
@@ -41,7 +41,7 @@
       "id": "4",
       "level": 4,
       "name": "자동차",
-      "img_path": "/images/beggar_lv4.png",
+      "img_path": "https://github.com/user-attachments/assets/80c2d625-9dae-4270-89fb-486cfbc0705c",
       "title": "안정적인 잔고 주행",
       "ment": "웬만한 지름신 유혹에는 창문도 안 내립니다. 통장에 아주 평화로운 시기가 찾아왔어요."
     },
@@ -49,7 +49,7 @@
       "id": "5",
       "level": 5,
       "name": "사이버트럭",
-      "img_path": "/images/beggar_lv5.png",
+      "img_path": "https://github.com/user-attachments/assets/f4e4834c-24f8-435e-82ef-c8f75f7ed8bf",
       "title": "과소비 철벽 방어",
       "ment": "망치로 내리쳐도 안 깨지는 철벽 방어력. 이 폼 그대로 유지하면 조만간 집 삽니다."
     }
