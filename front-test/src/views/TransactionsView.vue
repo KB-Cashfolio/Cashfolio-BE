@@ -23,13 +23,13 @@ const targetId = ref(null);
 const selectedType = ref('1');
 
 const form = reactive({
+  id: '',
+  user_id: '1',
+  account_id: '',
+  category_id: '',
   date: new Date().toISOString().substr(0, 10),
   amount: '',
-  category_id: '',
-  account_id: '',
   memo: '',
-  user_id: '1',
-  id: '',
 });
 
 // 선택된 수입/지출(type_id)에 맞는 카테고리만 필터링
