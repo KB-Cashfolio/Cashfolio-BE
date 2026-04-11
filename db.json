@@ -1,19 +1,19 @@
 {
   "users": [
     {
-      "email": "ryan@naver.com",
-      "password": "qwer1234",
-      "phone": "010-1234-5678",
+      "email": "Barrett_Cole87@hotmail.com",
+      "password": "MOQhX1lSV83CxaG",
+      "phone": "695-567-3831 x5657",
       "beg_level": 1,
       "current_exp": 0,
-      "daily_limit": 10000,
-      "monthly_limit": 180000,
-      "total_income": 22000,
-      "total_expense": 34000,
-      "id": "UkLY9qTqaP4",
-      "username": "라이언",
-      "join_date": "2026-04-09",
-      "last_settled_date": "2026-04-10"
+      "daily_limit": 50000,
+      "monthly_limit": 1000000,
+      "total_income": 3452773,
+      "total_expense": 4219920,
+      "id": "wGIHaoYY3za",
+      "username": "Arlene",
+      "join_date": "2026-02-11",
+      "last_settled_date": "2026-04-11"
     },
     {
       "email": "hanjyoon@naver.com",
@@ -21,29 +21,14 @@
       "phone": "010-3822-4083",
       "beg_level": 1,
       "current_exp": 0,
-      "daily_limit": 10000,
-      "monthly_limit": 300000,
-      "total_income": 258000,
-      "total_expense": 147000,
-      "id": "HmtP6MPq4Fg",
-      "username": "dd",
-      "join_date": "2026-04-10",
-      "last_settled_date": "2026-04-10"
-    },
-    {
-      "email": "hanjyoon1@naver.com",
-      "password": "HJYJY0616",
-      "phone": "010-2222-2222",
-      "beg_level": 1,
-      "current_exp": 5,
-      "daily_limit": 20000,
-      "monthly_limit": 600000,
+      "daily_limit": 30000,
+      "monthly_limit": 900000,
       "total_income": 100000,
-      "total_expense": 10000,
-      "id": "Gpcn8JVmP5Y",
+      "total_expense": 0,
+      "id": "hbFR_qtIwvo",
       "username": "한재윤",
-      "join_date": "2026-04-10",
-      "last_settled_date": "2026-04-10"
+      "join_date": "2026-04-11",
+      "last_settled_date": "2026-04-11"
     }
   ],
   "beggars": [
@@ -90,188 +75,912 @@
   ],
   "transactions": [
     {
-      "id": "JTsUy33UjD0",
-      "user_id": "0Lasf-tsJc",
-      "category_id": "5",
-      "date": "2026-04-09",
-      "amount": 20000,
-      "memo": "커피 사주세요"
+      "id": "ANRetSBxC8J",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "8",
+      "date": "2026-03-28",
+      "amount": 139790,
+      "memo": "영양제 구매"
     },
     {
-      "id": "_MAlpnRj0dQ",
-      "user_id": "0Lasf-tsJc",
-      "category_id": "5",
-      "date": "2026-03-31",
-      "amount": 12000,
-      "memo": "ㅋㅋ"
-    },
-    {
-      "id": "7z5mqP7M3D8",
-      "user_id": "1",
+      "id": "eFPb7b89Ulv",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
       "category_id": "3",
-      "date": "2026-04-09",
-      "amount": 12000,
+      "date": "2026-02-15",
+      "amount": 146612,
+      "memo": ""
+    },
+    {
+      "id": "r5S9VixmaBK",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "3",
+      "date": "2026-02-22",
+      "amount": 114864,
+      "memo": "주식 배당금"
+    },
+    {
+      "id": "THe2uQvYSza",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "5",
+      "date": "2026-03-16",
+      "amount": 64787,
+      "memo": "점심 식사"
+    },
+    {
+      "id": "u1dqXLE6bpC",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "5",
+      "date": "2026-03-15",
+      "amount": 120393,
+      "memo": "점심 식사"
+    },
+    {
+      "id": "Yb4o1WFmUdD",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "7",
+      "date": "2026-04-29",
+      "amount": 133952,
+      "memo": "편의점 간식"
+    },
+    {
+      "id": "23Y7dtt3gcj",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "10",
+      "date": "2026-04-28",
+      "amount": 148119,
+      "memo": "책 구매"
+    },
+    {
+      "id": "yLZhPqSTDGm",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "9",
+      "date": "2026-03-08",
+      "amount": 5674,
+      "memo": "보너스"
+    },
+    {
+      "id": "RlKpj5jJbjN",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "5",
+      "date": "2026-03-21",
+      "amount": 18645,
+      "memo": "친구랑 밥"
+    },
+    {
+      "id": "I4l9iWxZFV3",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "10",
+      "date": "2026-04-17",
+      "amount": 116390,
+      "memo": "구독료"
+    },
+    {
+      "id": "3FOBG8qaeLi",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "7",
+      "date": "2026-03-06",
+      "amount": 119628,
+      "memo": "생필품 구매"
+    },
+    {
+      "id": "WLdnDDLKrmw",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "7",
+      "date": "2026-02-08",
+      "amount": 26283,
+      "memo": "편의점 간식"
+    },
+    {
+      "id": "T2hhC9HxfnP",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "3",
+      "date": "2026-02-26",
+      "amount": 69885,
+      "memo": "주식 배당금"
+    },
+    {
+      "id": "4f01uJXxRs7",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "2",
+      "date": "2026-02-03",
+      "amount": 142224,
+      "memo": "성적 장학금"
+    },
+    {
+      "id": "eHa63tc43gr",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "7",
+      "date": "2026-04-23",
+      "amount": 111813,
+      "memo": "생필품 구매"
+    },
+    {
+      "id": "Ws1mRthnMVT",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "2",
+      "date": "2026-02-04",
+      "amount": 54568,
+      "memo": ""
+    },
+    {
+      "id": "d2FJQnfAVQu",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "1",
+      "date": "2026-02-26",
+      "amount": 20738,
+      "memo": "이번달 용돈"
+    },
+    {
+      "id": "gzvjAAZSYlz",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "4",
+      "date": "2026-04-04",
+      "amount": 14366,
+      "memo": "편의점 알바"
+    },
+    {
+      "id": "HYyc2YDihEW",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "10",
+      "date": "2026-03-31",
+      "amount": 123652,
+      "memo": "영화 관람"
+    },
+    {
+      "id": "aNepmkZH9JS",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "2",
+      "date": "2026-04-20",
+      "amount": 66791,
+      "memo": "성적 장학금"
+    },
+    {
+      "id": "eQCgw2jV5VD",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "7",
+      "date": "2026-03-28",
+      "amount": 69137,
+      "memo": "옷 구매"
+    },
+    {
+      "id": "kGJ0mAHhEcR",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "1",
+      "date": "2026-02-17",
+      "amount": 64311,
+      "memo": "이번달 용돈"
+    },
+    {
+      "id": "2VukhmQY1pS",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "6",
+      "date": "2026-04-12",
+      "amount": 1459,
+      "memo": "지하철"
+    },
+    {
+      "id": "d3bpgAKBJVC",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "1",
+      "date": "2026-04-21",
+      "amount": 126258,
+      "memo": ""
+    },
+    {
+      "id": "YnE6fy0C6m5",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "6",
+      "date": "2026-03-28",
+      "amount": 116984,
+      "memo": ""
+    },
+    {
+      "id": "3q8IEicjtXV",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "6",
+      "date": "2026-04-15",
+      "amount": 74644,
+      "memo": "교통카드 충전"
+    },
+    {
+      "id": "z7z4gzP5Dha",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "3",
+      "date": "2026-03-21",
+      "amount": 144989,
+      "memo": ""
+    },
+    {
+      "id": "SpEWOxqj885",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "9",
+      "date": "2026-04-19",
+      "amount": 2818,
+      "memo": ""
+    },
+    {
+      "id": "Ljt4OKbjy5h",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "1",
+      "date": "2026-02-23",
+      "amount": 145087,
+      "memo": ""
+    },
+    {
+      "id": "oLI1F7g1zUF",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "1",
+      "date": "2026-04-03",
+      "amount": 53374,
+      "memo": "아빠가 주심"
+    },
+    {
+      "id": "6SHQTKjTPOB",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "8",
+      "date": "2026-02-20",
+      "amount": 55750,
+      "memo": "영양제 구매"
+    },
+    {
+      "id": "4DpE2fkg82Y",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "7",
+      "date": "2026-03-29",
+      "amount": 91511,
+      "memo": ""
+    },
+    {
+      "id": "3RSUebBsD2c",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "9",
+      "date": "2026-02-05",
+      "amount": 63577,
+      "memo": "환급금"
+    },
+    {
+      "id": "vFJ7MfLdrBz",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "5",
+      "date": "2026-04-13",
+      "amount": 54223,
+      "memo": "점심 식사"
+    },
+    {
+      "id": "6Qs8iOElL4l",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "5",
+      "date": "2026-02-28",
+      "amount": 101680,
+      "memo": ""
+    },
+    {
+      "id": "yuxHFY8HQ7Y",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "4",
+      "date": "2026-03-02",
+      "amount": 1447,
+      "memo": ""
+    },
+    {
+      "id": "8bAjKSCf5Dj",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "2",
+      "date": "2026-03-29",
+      "amount": 110144,
+      "memo": ""
+    },
+    {
+      "id": "tITIQm2jYnb",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "5",
+      "date": "2026-02-08",
+      "amount": 23545,
+      "memo": "점심 식사"
+    },
+    {
+      "id": "mCcgAm7wOmq",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "10",
+      "date": "2026-03-29",
+      "amount": 108782,
+      "memo": "친구 선물"
+    },
+    {
+      "id": "n3CmZyN6nrV",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "2",
+      "date": "2026-02-15",
+      "amount": 10894,
+      "memo": "성적 장학금"
+    },
+    {
+      "id": "yitdfwUymCv",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "8",
+      "date": "2026-03-06",
+      "amount": 39178,
+      "memo": "병원 진료"
+    },
+    {
+      "id": "wapiqqUc7Y9",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "10",
+      "date": "2026-02-11",
+      "amount": 29077,
+      "memo": "친구 선물"
+    },
+    {
+      "id": "JU64Dw4Z4s9",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "3",
+      "date": "2026-02-25",
+      "amount": 42732,
+      "memo": ""
+    },
+    {
+      "id": "rdDbl7vj51s",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "1",
+      "date": "2026-04-20",
+      "amount": 40856,
+      "memo": "아빠가 주심"
+    },
+    {
+      "id": "aAigiVjg5vj",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "2",
+      "date": "2026-02-27",
+      "amount": 109862,
+      "memo": ""
+    },
+    {
+      "id": "lbs1LUBHFRz",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "7",
+      "date": "2026-02-16",
+      "amount": 108019,
+      "memo": "생필품 구매"
+    },
+    {
+      "id": "MXEZ1gxG9oi",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "3",
+      "date": "2026-02-16",
+      "amount": 141676,
       "memo": "은행 이자"
     },
     {
-      "id": "8bHsYwzAGTg",
-      "user_id": "1",
-      "category_id": "4",
-      "date": "2026-04-25",
-      "amount": 4000,
-      "memo": "알바"
+      "id": "DO7cgjCQ9Pw",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "1",
+      "date": "2026-04-03",
+      "amount": 55422,
+      "memo": "이번달 용돈"
     },
     {
-      "id": "4c95XvkLEfc",
-      "user_id": "UkLY9qTqaP4",
-      "category_id": "5",
-      "date": "2026-04-09",
-      "amount": 3000,
-      "memo": "저녁"
-    },
-    {
-      "id": "i_5wNKHiY94",
-      "user_id": "UkLY9qTqaP4",
-      "category_id": "7",
-      "date": "2026-04-09",
-      "amount": 1000,
-      "memo": "삼김"
-    },
-    {
-      "id": "kQ2jzfBCzNo",
-      "user_id": "UkLY9qTqaP4",
+      "id": "zcn9gP2KdMx",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
       "category_id": "6",
-      "date": "2026-04-10",
-      "amount": 1000,
-      "memo": "버스"
+      "date": "2026-04-06",
+      "amount": 7015,
+      "memo": "택시비"
     },
     {
-      "id": "50RZ9mOXuA4",
-      "user_id": "UkLY9qTqaP4",
-      "category_id": "5",
-      "date": "2026-04-10",
-      "amount": 1000,
-      "memo": "밥"
+      "id": "6BghAaLGPZM",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "1",
+      "date": "2026-02-05",
+      "amount": 49800,
+      "memo": "엄마한테 받음"
     },
     {
-      "id": "6PgmAlY8cP0",
-      "user_id": "UkLY9qTqaP4",
-      "category_id": "5",
-      "date": "2026-04-09",
-      "amount": 2000,
-      "memo": "물"
-    },
-    {
-      "id": "4oFuzFq7zkQ",
-      "user_id": "UkLY9qTqaP4",
-      "category_id": "9",
-      "date": "2026-04-09",
-      "amount": 10000,
-      "memo": "돈"
-    },
-    {
-      "memo": "교통비",
-      "amount": 10000,
-      "category_id": "6",
-      "user_id": "Gpcn8JVmP5Y",
-      "date": "2026-04-10",
-      "id": "_PN9Je28lBM"
-    },
-    {
-      "id": "0BAy4Ep8hNo",
-      "user_id": "UkLY9qTqaP4",
+      "id": "pZXNkgV6rz0",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
       "category_id": "2",
-      "date": "2026-04-10",
-      "amount": 12000,
-      "memo": "이자"
+      "date": "2026-02-15",
+      "amount": 21553,
+      "memo": ""
     },
     {
+      "id": "A3VfZ3gGAsk",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "9",
+      "date": "2026-03-26",
+      "amount": 148036,
+      "memo": ""
+    },
+    {
+      "id": "JofnEuWha8Z",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "4",
+      "date": "2026-03-09",
+      "amount": 82542,
+      "memo": ""
+    },
+    {
+      "id": "rJWSyRmcUrS",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
       "category_id": "7",
-      "amount": 4000,
-      "memo": "",
-      "user_id": "UkLY9qTqaP4",
-      "date": "2026-04-10",
-      "id": "VqidvADpW5Q"
+      "date": "2026-03-28",
+      "amount": 145291,
+      "memo": "옷 구매"
     },
     {
-      "id": "rIEeDg6Ox0Y",
-      "user_id": "UkLY9qTqaP4",
-      "category_id": "5",
-      "date": "2026-04-11",
-      "amount": 12000,
-      "memo": "샌드위치"
+      "id": "H16QCXhXhPX",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "8",
+      "date": "2026-02-13",
+      "amount": 92168,
+      "memo": "영양제 구매"
     },
     {
-      "category_id": "5",
-      "amount": 10000,
-      "memo": "중국집",
-      "user_id": "UkLY9qTqaP4",
-      "date": "2026-04-11",
-      "id": "eql8CYdAx60"
-    },
-    {
-      "id": "sKV5c53nuMo",
-      "user_id": "HmtP6MPq4Fg",
-      "category_id": "5",
-      "date": "2026-04-11",
-      "amount": 120000,
-      "memo": "ㅁㄴㅇㅁㅇ"
-    },
-    {
+      "id": "NnlaDpiZZBg",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
       "category_id": "1",
-      "amount": 11000,
-      "memo": "",
-      "user_id": "HmtP6MPq4Fg",
-      "date": "2026-04-11",
-      "id": "W_MWNuF51sQ"
+      "date": "2026-02-18",
+      "amount": 105709,
+      "memo": "이번달 용돈"
     },
     {
-      "id": "RX6LWapTf7Y",
-      "user_id": "HmtP6MPq4Fg",
+      "id": "23lr0fbZ3oT",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "7",
+      "date": "2026-02-17",
+      "amount": 51392,
+      "memo": "옷 구매"
+    },
+    {
+      "id": "WP3BgGvp8VJ",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "9",
+      "date": "2026-02-03",
+      "amount": 67124,
+      "memo": "환급금"
+    },
+    {
+      "id": "MwYTL7LvqnJ",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
       "category_id": "3",
-      "date": "2026-04-11",
-      "amount": 80000,
-      "memo": "적금"
+      "date": "2026-02-27",
+      "amount": 86725,
+      "memo": "은행 이자"
     },
     {
-      "id": "7aMR_SyUG9w",
-      "user_id": "HmtP6MPq4Fg",
-      "category_id": "1",
-      "date": "2026-04-11",
-      "amount": 10000,
-      "memo": ""
-    },
-    {
-      "id": "d-GEpfnv02k",
-      "user_id": "HmtP6MPq4Fg",
-      "category_id": "4",
-      "date": "2026-04-09",
-      "amount": 34000,
-      "memo": "토토"
-    },
-    {
-      "id": "c0RnPs8is20",
-      "user_id": "HmtP6MPq4Fg",
-      "category_id": "4",
-      "date": "2026-04-09",
-      "amount": 12000,
-      "memo": ""
-    },
-    {
-      "id": "P1uCCJHPKJY",
-      "user_id": "HmtP6MPq4Fg",
+      "id": "1Sb5JTY70or",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
       "category_id": "7",
-      "date": "2026-04-11",
-      "amount": 27000,
-      "memo": "옷"
+      "date": "2026-02-17",
+      "amount": 104680,
+      "memo": "옷 구매"
     },
     {
-      "id": "uqdk6-1udok",
-      "user_id": "HmtP6MPq4Fg",
+      "id": "x8UR6TY4aQL",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "8",
+      "date": "2026-02-04",
+      "amount": 122455,
+      "memo": "병원 진료"
+    },
+    {
+      "id": "hEiLd9ksV62",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "5",
+      "date": "2026-04-08",
+      "amount": 1142,
+      "memo": "친구랑 밥"
+    },
+    {
+      "id": "KHiV9gv1s2b",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "8",
+      "date": "2026-03-16",
+      "amount": 141037,
+      "memo": "영양제 구매"
+    },
+    {
+      "id": "NALXsENHHKx",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "1",
+      "date": "2026-04-04",
+      "amount": 43801,
+      "memo": "이번달 용돈"
+    },
+    {
+      "id": "9NgNtZIkVvB",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "2",
+      "date": "2026-02-06",
+      "amount": 58995,
+      "memo": "국가 장학금"
+    },
+    {
+      "id": "TXAJITMfenS",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "8",
+      "date": "2026-02-28",
+      "amount": 133386,
+      "memo": "약국"
+    },
+    {
+      "id": "UFwp31yTukI",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "1",
+      "date": "2026-03-17",
+      "amount": 136563,
+      "memo": "엄마한테 받음"
+    },
+    {
+      "id": "It372lZXIn0",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "7",
+      "date": "2026-04-08",
+      "amount": 138377,
+      "memo": "옷 구매"
+    },
+    {
+      "id": "94WsHEThFd7",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "6",
+      "date": "2026-02-26",
+      "amount": 10186,
+      "memo": "버스비"
+    },
+    {
+      "id": "veNfwUzkYrD",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "10",
+      "date": "2026-02-06",
+      "amount": 81583,
+      "memo": "구독료"
+    },
+    {
+      "id": "005PMjqM318",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "1",
+      "date": "2026-02-28",
+      "amount": 121745,
+      "memo": ""
+    },
+    {
+      "id": "Vh4ADmn6lSd",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "7",
+      "date": "2026-04-16",
+      "amount": 122736,
+      "memo": "온라인 쇼핑"
+    },
+    {
+      "id": "kAgZMjr2ILT",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "7",
+      "date": "2026-04-24",
+      "amount": 101152,
+      "memo": "옷 구매"
+    },
+    {
+      "id": "Lqj6dmpKtQS",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "2",
+      "date": "2026-04-19",
+      "amount": 88514,
+      "memo": "성적 장학금"
+    },
+    {
+      "id": "fwNiAPVnCvp",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "7",
+      "date": "2026-02-02",
+      "amount": 69801,
+      "memo": ""
+    },
+    {
+      "id": "z3sYHWbjwNG",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "8",
+      "date": "2026-03-29",
+      "amount": 137762,
+      "memo": "병원 진료"
+    },
+    {
+      "id": "602R48cMk4b",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "8",
+      "date": "2026-04-20",
+      "amount": 58112,
+      "memo": ""
+    },
+    {
+      "id": "nC6JNg3VhFM",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "3",
+      "date": "2026-02-28",
+      "amount": 48855,
+      "memo": "적금 만기"
+    },
+    {
+      "id": "JfVHl7qwz2f",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "9",
+      "date": "2026-03-17",
+      "amount": 88558,
+      "memo": "보너스"
+    },
+    {
+      "id": "U7O32oSLQ1n",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "4",
+      "date": "2026-04-03",
+      "amount": 53674,
+      "memo": "카페 알바비"
+    },
+    {
+      "id": "gePyjjrBY1u",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "6",
+      "date": "2026-02-27",
+      "amount": 141155,
+      "memo": "교통카드 충전"
+    },
+    {
+      "id": "qRGujn8UzTa",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "9",
+      "date": "2026-03-09",
+      "amount": 107890,
+      "memo": "환급금"
+    },
+    {
+      "id": "L3zFZtuO7uk",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "5",
+      "date": "2026-04-03",
+      "amount": 48353,
+      "memo": "저녁 약속"
+    },
+    {
+      "id": "XGheelwsvU1",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "6",
+      "date": "2026-03-13",
+      "amount": 71179,
+      "memo": "택시비"
+    },
+    {
+      "id": "Tl8u61Ux4it",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "3",
+      "date": "2026-04-22",
+      "amount": 80903,
+      "memo": "적금 만기"
+    },
+    {
+      "id": "1ui3RFfErCG",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "7",
+      "date": "2026-04-20",
+      "amount": 24877,
+      "memo": "옷 구매"
+    },
+    {
+      "id": "DcIKlVJmHYo",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "8",
+      "date": "2026-03-21",
+      "amount": 14737,
+      "memo": "약국"
+    },
+    {
+      "id": "djo7uiLN9ZD",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "4",
+      "date": "2026-04-11",
+      "amount": 96930,
+      "memo": "편의점 알바"
+    },
+    {
+      "id": "y6Afc3L4Dfv",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "6",
+      "date": "2026-04-15",
+      "amount": 139112,
+      "memo": "지하철"
+    },
+    {
+      "id": "3PaJKliyiP7",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "2",
+      "date": "2026-03-16",
+      "amount": 36047,
+      "memo": "성적 장학금"
+    },
+    {
+      "id": "j1Xy6VWk8vn",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "7",
+      "date": "2026-04-15",
+      "amount": 73510,
+      "memo": ""
+    },
+    {
+      "id": "VmkQw4HGYF9",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "2",
+      "date": "2026-02-25",
+      "amount": 84147,
+      "memo": "근로 장학금"
+    },
+    {
+      "id": "YUxqjVDRKE3",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "6",
+      "date": "2026-04-11",
+      "amount": 125684,
+      "memo": "지하철"
+    },
+    {
+      "id": "jrWP8JvzCi8",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "5",
+      "date": "2026-02-09",
+      "amount": 8146,
+      "memo": "배달음식"
+    },
+    {
+      "id": "LRYUNlPi8cQ",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "6",
+      "date": "2026-03-19",
+      "amount": 3723,
+      "memo": "교통카드 충전"
+    },
+    {
+      "id": "zMsgnRyAcoO",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "1",
+      "category_id": "7",
+      "date": "2026-04-27",
+      "amount": 15900,
+      "memo": ""
+    },
+    {
+      "id": "ejQFKlIYdR7",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "3",
+      "date": "2026-02-22",
+      "amount": 35851,
+      "memo": ""
+    },
+    {
+      "id": "1oNNjGq0dZa",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "5",
+      "date": "2026-04-05",
+      "amount": 4484,
+      "memo": "배달음식"
+    },
+    {
+      "id": "muOl1O5JunZ",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "2",
+      "category_id": "9",
+      "date": "2026-03-16",
+      "amount": 59642,
+      "memo": ""
+    },
+    {
+      "id": "rUuZMpJbDzT",
+      "user_id": "wGIHaoYY3za",
+      "account_id": "3",
+      "category_id": "6",
+      "date": "2026-03-26",
+      "amount": 33344,
+      "memo": "택시비"
+    },
+    {
+      "user_id": "hbFR_qtIwvo",
       "category_id": "1",
       "date": "2026-04-11",
-      "amount": 111000,
-      "memo": ""
+      "amount": 100000,
+      "memo": "기초 자산",
+      "id": "mML3Sq3R_uQ"
     }
   ],
   "inandout": [
@@ -284,23 +993,6 @@
       "id": "2",
       "name": "지출",
       "type": "minus"
-    }
-  ],
-  "bank": [
-    {
-      "id": "KB",
-      "name": "KB국민은행",
-      "abbr_name": "KB국민"
-    },
-    {
-      "id": "SH",
-      "name": "신한은행",
-      "abbr_name": "신한"
-    },
-    {
-      "id": "HN",
-      "name": "하나은행",
-      "abbr_name": "하나"
     }
   ],
   "category": [
