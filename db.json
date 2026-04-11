@@ -1,17 +1,47 @@
 {
   "users": [
     {
-      "email": "jaeyoon1@example.com",
-      "password": "pass1234",
-      "phone": "010-1212-1212",
+      "email": "ryan@naver.com",
+      "password": "qwer1234",
+      "phone": "010-1234-5678",
       "beg_level": 1,
       "current_exp": 0,
-      "monthly_limit": 360000,
-      "total_income": 11,
-      "total_expense": 0,
-      "id": "XFt4NUTRYVQ",
-      "username": "ㅇㅇ",
-      "daily_limit": 12000,
+      "daily_limit": 10000,
+      "monthly_limit": 180000,
+      "total_income": 22000,
+      "total_expense": 34000,
+      "id": "UkLY9qTqaP4",
+      "username": "라이언",
+      "join_date": "2026-04-09",
+      "last_settled_date": "2026-04-10"
+    },
+    {
+      "email": "hanjyoon@naver.com",
+      "password": "qwer1234",
+      "phone": "010-3822-4083",
+      "beg_level": 1,
+      "current_exp": 0,
+      "daily_limit": 10000,
+      "monthly_limit": 300000,
+      "total_income": 258000,
+      "total_expense": 147000,
+      "id": "HmtP6MPq4Fg",
+      "username": "dd",
+      "join_date": "2026-04-10",
+      "last_settled_date": "2026-04-10"
+    },
+    {
+      "email": "hanjyoon1@naver.com",
+      "password": "HJYJY0616",
+      "phone": "010-2222-2222",
+      "beg_level": 1,
+      "current_exp": 5,
+      "daily_limit": 20000,
+      "monthly_limit": 600000,
+      "total_income": 100000,
+      "total_expense": 10000,
+      "id": "Gpcn8JVmP5Y",
+      "username": "한재윤",
       "join_date": "2026-04-10",
       "last_settled_date": "2026-04-10"
     }
@@ -58,14 +88,13 @@
       "ment": "망치로 내리쳐도 안 깨지는 철벽 방어력. 이 폼 그대로 유지하면 조만간 집 삽니다."
     }
   ],
-
   "transactions": [
     {
       "id": "JTsUy33UjD0",
       "user_id": "0Lasf-tsJc",
       "category_id": "5",
       "date": "2026-04-09",
-      "amount": 10000,
+      "amount": 20000,
       "memo": "커피 사주세요"
     },
     {
@@ -83,6 +112,166 @@
       "date": "2026-04-09",
       "amount": 12000,
       "memo": "은행 이자"
+    },
+    {
+      "id": "8bHsYwzAGTg",
+      "user_id": "1",
+      "category_id": "4",
+      "date": "2026-04-25",
+      "amount": 4000,
+      "memo": "알바"
+    },
+    {
+      "id": "4c95XvkLEfc",
+      "user_id": "UkLY9qTqaP4",
+      "category_id": "5",
+      "date": "2026-04-09",
+      "amount": 3000,
+      "memo": "저녁"
+    },
+    {
+      "id": "i_5wNKHiY94",
+      "user_id": "UkLY9qTqaP4",
+      "category_id": "7",
+      "date": "2026-04-09",
+      "amount": 1000,
+      "memo": "삼김"
+    },
+    {
+      "id": "kQ2jzfBCzNo",
+      "user_id": "UkLY9qTqaP4",
+      "category_id": "6",
+      "date": "2026-04-10",
+      "amount": 1000,
+      "memo": "버스"
+    },
+    {
+      "id": "50RZ9mOXuA4",
+      "user_id": "UkLY9qTqaP4",
+      "category_id": "5",
+      "date": "2026-04-10",
+      "amount": 1000,
+      "memo": "밥"
+    },
+    {
+      "id": "6PgmAlY8cP0",
+      "user_id": "UkLY9qTqaP4",
+      "category_id": "5",
+      "date": "2026-04-09",
+      "amount": 2000,
+      "memo": "물"
+    },
+    {
+      "id": "4oFuzFq7zkQ",
+      "user_id": "UkLY9qTqaP4",
+      "category_id": "9",
+      "date": "2026-04-09",
+      "amount": 10000,
+      "memo": "돈"
+    },
+    {
+      "memo": "교통비",
+      "amount": 10000,
+      "category_id": "6",
+      "user_id": "Gpcn8JVmP5Y",
+      "date": "2026-04-10",
+      "id": "_PN9Je28lBM"
+    },
+    {
+      "id": "0BAy4Ep8hNo",
+      "user_id": "UkLY9qTqaP4",
+      "category_id": "2",
+      "date": "2026-04-10",
+      "amount": 12000,
+      "memo": "이자"
+    },
+    {
+      "category_id": "7",
+      "amount": 4000,
+      "memo": "",
+      "user_id": "UkLY9qTqaP4",
+      "date": "2026-04-10",
+      "id": "VqidvADpW5Q"
+    },
+    {
+      "id": "rIEeDg6Ox0Y",
+      "user_id": "UkLY9qTqaP4",
+      "category_id": "5",
+      "date": "2026-04-11",
+      "amount": 12000,
+      "memo": "샌드위치"
+    },
+    {
+      "category_id": "5",
+      "amount": 10000,
+      "memo": "중국집",
+      "user_id": "UkLY9qTqaP4",
+      "date": "2026-04-11",
+      "id": "eql8CYdAx60"
+    },
+    {
+      "id": "sKV5c53nuMo",
+      "user_id": "HmtP6MPq4Fg",
+      "category_id": "5",
+      "date": "2026-04-11",
+      "amount": 120000,
+      "memo": "ㅁㄴㅇㅁㅇ"
+    },
+    {
+      "category_id": "1",
+      "amount": 11000,
+      "memo": "",
+      "user_id": "HmtP6MPq4Fg",
+      "date": "2026-04-11",
+      "id": "W_MWNuF51sQ"
+    },
+    {
+      "id": "RX6LWapTf7Y",
+      "user_id": "HmtP6MPq4Fg",
+      "category_id": "3",
+      "date": "2026-04-11",
+      "amount": 80000,
+      "memo": "적금"
+    },
+    {
+      "id": "7aMR_SyUG9w",
+      "user_id": "HmtP6MPq4Fg",
+      "category_id": "1",
+      "date": "2026-04-11",
+      "amount": 10000,
+      "memo": ""
+    },
+    {
+      "id": "d-GEpfnv02k",
+      "user_id": "HmtP6MPq4Fg",
+      "category_id": "4",
+      "date": "2026-04-09",
+      "amount": 34000,
+      "memo": "토토"
+    },
+    {
+      "id": "c0RnPs8is20",
+      "user_id": "HmtP6MPq4Fg",
+      "category_id": "4",
+      "date": "2026-04-09",
+      "amount": 12000,
+      "memo": ""
+    },
+    {
+      "id": "P1uCCJHPKJY",
+      "user_id": "HmtP6MPq4Fg",
+      "category_id": "7",
+      "date": "2026-04-11",
+      "amount": 27000,
+      "memo": "옷"
+    },
+    {
+      "id": "uqdk6-1udok",
+      "user_id": "HmtP6MPq4Fg",
+      "category_id": "1",
+      "date": "2026-04-11",
+      "amount": 111000,
+      "memo": ""
     }
   ],
   "inandout": [
@@ -97,7 +286,23 @@
       "type": "minus"
     }
   ],
-
+  "bank": [
+    {
+      "id": "KB",
+      "name": "KB국민은행",
+      "abbr_name": "KB국민"
+    },
+    {
+      "id": "SH",
+      "name": "신한은행",
+      "abbr_name": "신한"
+    },
+    {
+      "id": "HN",
+      "name": "하나은행",
+      "abbr_name": "하나"
+    }
+  ],
   "category": [
     {
       "id": "1",
